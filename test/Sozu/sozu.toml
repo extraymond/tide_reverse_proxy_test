@@ -1,0 +1,17 @@
+[[listeners]]
+address = "0.0.0.0:5000"
+protocol = "http"
+# answer_404 = "./404.html"
+# expect_proxy = false
+
+[applications]
+[applications.MyApp]
+protocol = "http"
+#sticky_session = false
+#https_redirect = false
+frontends = [
+  { address = "0.0.0.0:5000", hostname = "localhost" },
+]
+backends = [
+  { address = "127.0.0.1:8080", weight = 100, sticky_id = "backend-1026" },
+]
